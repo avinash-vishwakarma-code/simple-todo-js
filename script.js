@@ -9,9 +9,8 @@ addTodoForm.addEventListener("submit", (e) => {
 
   //    create a new element
 
-  let oldInnerHtml = TodoList.innerHTML;
   const todoitemId = Math.trunc(Math.random() * 9999);
-  oldInnerHtml += `<li id="todo-${todoitemId}">
+  const newTodoElement = `<li id="todo-${todoitemId}">
   <div class="single_todo">
     ${input.value}
   </div>
@@ -24,7 +23,7 @@ addTodoForm.addEventListener("submit", (e) => {
     </button>
   </div>
 </li>`;
-  TodoList.innerHTML = oldInnerHtml;
+  TodoList.insertAdjacentHTML("afterbegin", newTodoElement);
   input.value = "";
 });
 
